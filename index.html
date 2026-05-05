@@ -3,32 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人資訊頁面</title>
+    <title>教科一A 414730290 - 影像辨識專案</title>
+
+    <!-- 1. 引入 p5.js 核心與聲音庫 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+    
+    <!-- 2. 引入 ml5.js AI 庫 -->
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    
+    <!-- 3. 引入你的外部樣式表 -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <style>
         body {
             display: flex;
-            justify-content: center;
+            flex-direction: column; 
+            justify-content: flex-start; /* 改為從頂部開始排列，但透過 padding 控制距離 */
             align-items: center;
-            height: 25vh;
+            min-height: 100vh; /* 改回 100vh 確保垂直居中計算正確 */
             margin: 0;
+            padding-top: 50px; /* 關鍵：這行讓內容與頂端保持 50px 的距離 */
+            padding-bottom: 50px; /* 底部也留一點空間 */
             font-family: "Microsoft JhengHei", Arial, sans-serif;
-            background-color: #3d4396;
+            background-color: #000000;
+            box-sizing: border-box; /* 確保 padding 不會撐破畫面 */
         }
+
         .info-container {
-            padding: 20px 40px;
-            background-color: #3fc9e2;
-            box-shadow: 0 4px 6px rgba(92, 70, 216, 0.1);
-            border-radius: 8px;
+            margin-bottom: 30px; 
+            padding: 15px 40px;
+            background-color: #60a4e4;
+            box-shadow: 0 4px 15px rgba(96, 164, 228, 0.4); /* 稍微加強陰影光暈 */
+            border-radius: 12px;
             font-size: 24px;
-            color: #4e2fa3;
+            font-weight: bold;
+            color: #ffffff;
+            z-index: 25;
+            transition: transform 0.3s ease; /* 增加一個小動畫感 */
+        }
+
+        .info-container:hover {
+            transform: scale(1.05); /* 滑鼠移上去稍微放大 */
+        }
+
+        /* p5 畫布美化 */
+        canvas {
+            border: 3px solid #60a4e4; /* 給畫布一個跟標籤顏色一致的邊框 */
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
 
+    <!-- 個人資訊區塊 -->
     <div class="info-container">
         教科一A 414730290
     </div>
+
+    <!-- p5.js 的主程式碼 -->
+    <script src="sketch.js"></script>
 
 </body>
 </html>
